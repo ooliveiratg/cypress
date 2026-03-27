@@ -22,10 +22,16 @@ describe('template spec', () => {
   })
 
   it('should show error password message', () => {
-cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3000')
     cy.contains('button', 'Entrar').click()
     cy.contains('Ei, não esqueça de digitar seu email!')
     cy.contains('Você precisa de uma senha para entrar! 🔒')
 
+  })
+  it('success', () => {
+    cy.visit('http://localhost:3000')
+    cy.get('#email').type('4dt@gmail.com')
+    cy.get('#password').type('4DT')
+    cy.contains('button', 'Entrar').click()
   })
 })
