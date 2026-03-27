@@ -15,7 +15,7 @@ describe('formulario', () => {
     cy.contains('label', 'Instagram').find('input').check().should('be.checked')
     cy.get('input[type="file"]').selectFile('cypress/fixtures/a9e79599e66427f00fe83ad66c199c91.jpg', { force: true })
     cy.get('#details').type('Gostaria de saber mais sobre os serviços de consultoria individual. Estou interessado em entender como a consultoria pode me ajudar a alcançar meus objetivos pessoais e profissionais. Por favor, entre em contato comigo para discutir mais detalhes e agendar uma consulta. Obrigado!')
-    cy.get('#technologies').type('JavaScript {enter}')
+    cy.get('#technologies').type('JavaScript {enter}').should('be.visible', 'JavaScript')
     cy.contains('label', 'Li e aceito os').find('input').check().should('be.checked')
     cy.contains('button', 'Enviar formulário').click()
   })
