@@ -22,4 +22,16 @@ describe('formulario', () => {
     cy.contains('button', 'Fechar').should('be.visible').click()
     cy.contains('a', 'Voltar para o Dashboard').should('be.visible').click()
   })
+  it('should show error message', () => {
+    cy.visit('http://localhost:3000')
+    cy.get('#email').type('4dt@gmail.com')
+    cy.get('#password').type('4DT')
+    cy.contains('button', 'Entrar').click()
+    cy.contains('h4', 'Formulários').click()
+    cy.contains('button', 'Enviar formulário').click()
+    cy.wait(3000)
+    cy.get('p').should('have.css', 'color', 'rgb(248, 113, 113)')
+
+  }
+)
 })
