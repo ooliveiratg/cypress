@@ -18,5 +18,8 @@ describe('formulario', () => {
     cy.get('#technologies').type('JavaScript {enter}').should('be.visible', 'JavaScript')
     cy.contains('label', 'Li e aceito os').find('input').check().should('be.checked')
     cy.contains('button', 'Enviar formulário').click()
+    cy.wait(3000)
+    cy.contains('button', 'Fechar').should('be.visible').click()
+    cy.contains('a', 'Voltar para o Dashboard').should('be.visible').click()
   })
 })
